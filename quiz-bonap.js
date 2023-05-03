@@ -156,7 +156,7 @@ function copyToClipboard(text) {
 const shareButton = document.getElementById("share");
 shareButton.onclick = () => {
   const state = getStateFromUrl();
-  const resultText = `Nativle Maps ${correctCount}/10\nbit.ly/nativle\n${answerTracking}`;
+  const resultText = `Nativle Maps ${correctCount}/10\nbit.ly/nativlemaps\n${answerTracking}`;
   copyToClipboard(resultText);
 
   const messageElement = document.getElementById("message");
