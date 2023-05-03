@@ -201,7 +201,7 @@ function displayResult() {
     collapsibleContent.style.display = "flex";
     collapsibleContent.style.flexDirection = "column"; // Add this line to stack the content vertically
     collapsibleContent.style.justifyContent = "space-between";
-    collapsibleContent.style.maxHeight = "40px";
+    collapsibleContent.style.maxHeight = "30px";
     collapsibleContent.style.overflow = "hidden";
     collapsibleContent.style.transition = "max-height 0.3s ease-in-out";
 
@@ -211,10 +211,10 @@ function displayResult() {
 
     // Add a click event listener to the row to toggle the collapsible content height
     row.addEventListener("click", () => {
-      if (collapsibleContent.style.maxHeight === "40px") {
+      if (collapsibleContent.style.maxHeight === "30px") {
         collapsibleContent.style.maxHeight = "600px"; // Set the maxHeight to a larger value when expanded
       } else {
-        collapsibleContent.style.maxHeight = "40px";
+        collapsibleContent.style.maxHeight = "30px";
       }
     });
 
