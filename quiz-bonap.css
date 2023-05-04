@@ -1,3 +1,12 @@
+:root {
+  --dark-green: #3C6748;
+  --light-green: #63A375;
+  --blue: #D57A66;
+  --red: #CA6680;
+  --light-blue: #EDC79B;
+  --purple: #713E5A;
+}
+
 body {
   font-family: "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
   font-size: 18px;
@@ -44,7 +53,7 @@ h1 {
   margin-top: 5px;
 }
 .correct-answer {
-  background-color: #98FB98; /* Pale green */
+  background-color: var(--light-green)
 }
 #image-container {
   display: flex;
@@ -74,7 +83,7 @@ ul {
 li {
   padding: 10px;
   margin: 5px;
-  background-color: #89CFF0;
+  background-color: var(--light-blue);
   border-radius: 0px;
   cursor: pointer;
   color: #333;
@@ -82,7 +91,7 @@ li {
 }
 
 li:hover {
-  background-color: #72A9C0;
+  background-color: var(--blue);
 }
 
 p {
@@ -102,7 +111,7 @@ p {
   padding: 10px 20px;
   border: none;
   border-radius: 0px;
-  background-color: #89CFF0;
+  background-color: var(--light-blue);
   color: #333;
   cursor: pointer;
   margin: 5px;
@@ -110,7 +119,7 @@ p {
 }
 
 .button-wrapper button:hover {
-  background-color: #72A9C0;
+  background-color: var(--light-blue);
 }
 
 .share-wrapper {
@@ -124,7 +133,7 @@ p {
   padding: 10px 20px;
   border: none;
   border-radius: 0px;
-  background-color: orange;
+  background-color: var(--purple);
   color: #333;
   cursor: pointer;
   margin: 5px;
@@ -136,7 +145,7 @@ button {
   padding: 10px 20px;
   border: none;
   border-radius: 0px;
-  background-color: #89CFF0;
+  background-color: var(--light-blue);
   color: #333;
   cursor: pointer;
   margin: 5px;
@@ -144,7 +153,7 @@ button {
 }
 
 .share-wrapper button:hover {
-  background-color: #72A9C0;
+  background-color: var(--blue);
 }
 
 .option {
@@ -152,12 +161,12 @@ button {
 }
 
 .option:hover {
-    background-color: #72A9C0;
+    background-color: var(--blue);
 }
 .option li {
   padding: 5px;
   margin: 5px;
-  background-color: #89CFF0;
+  background-color: var(--light-blue);
   border-radius: 0px;
   cursor: pointer;
   color: #333;
@@ -292,7 +301,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center; /* Add this line to center the text vertically */
-  background-color: #90EE90;
+  background-color: var(--light-green);
   margin-bottom: 5px;
   padding: 5px;
   border-radius: 5px;
