@@ -190,7 +190,7 @@ function displayResult() {
     row.className = "result-row";
     row.style.display = "flex";
     row.style.justifyContent = "space-between";
-    row.style.backgroundColor = answerResult.correct ? "#90EE90" : "#FFB6C1";
+    row.style.backgroundColor = answerResult.correct ? "var(--light-green)" : "var(--red)";
     row.style.marginBottom = "5px";
     row.style.padding = "5px";
     row.style.borderRadius = "5px";
