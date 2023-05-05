@@ -17,7 +17,7 @@ const totalQuestions = 10; // Change this to the desired number of questions
 function getQuizData() {
   const urlParams = new URLSearchParams(window.location.search);
   const state = urlParams.get("state") || "TX"; // Default to "TX" if no state parameter is provided
-  return jsonData.plants.filter(plant => plant.Native.Native.includes(state));
+  return jsonData.plants;
 }
 
 function getRandomInt(max) {
