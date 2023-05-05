@@ -1,17 +1,18 @@
-import { jsonData } from "./quiz-json.js";
-const quizElement = document.getElementById("quiz");
+import {
+  jsonData
+} from "./quiz-json.js";
+//const quizElement = document.getElementById("quiz");
 
 let questionCount = 0;
 let correctCount = 0;
 let answerTracking = "";
 let correctPlantNames = [];
-let correctEmoji = "🌱";
-let incorrectEmoji = "🍂";
+//let correctEmoji = "🌱";
+//let incorrectEmoji = "🍂";
 let plantNames = [];
 let answerResults = [];
 let questionsAnswered = 0;
 const totalQuestions = 10; // Change this to the desired number of questions
-
 
 function getQuizData() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -20,29 +21,29 @@ function getQuizData() {
 }
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max);
 }
 
 function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
-function displayQuestion() {
+function displayQuestion(question) {
+  console.log("displayQuestion called");
   if (questionCount >= 10) {
     displayResult();
     return;
   }
 
+  const imageElement = document.getElementById("image");
   const plants = getQuizData();
   const randomPlantIndex = getRandomInt(plants.length);
   const randomPlant = plants[randomPlantIndex];
   const correctAnswer = randomPlant["Scientific Name"];
-  const imageElement = document.getElementById("image");
-  imageElement.src = randomPlant.Images[getRandomInt(randomPlant.Images.length)];
 
   // Remove the selected plant from the plants array
   plants.splice(randomPlantIndex, 1);
@@ -62,18 +63,18 @@ function displayQuestion() {
   optionsElement.innerHTML = "";
 
   shuffledOptions.forEach((option) => {
-    const li = document.createElement("li");
-    li.className = "option";
+     const li = document.createElement("li");
+     li.className = "option";
 
-    // Add BONAP map image to the list item
-    const img = document.createElement("img");
-    img.src = `http://bonap.net/MapGallery/County/${option}.png`;
-    img.alt = option;
-    img.className = "bonap-map";
-    li.appendChild(img);
+     // Add BONAP map image to the list item
+     const img = document.createElement("img");
+     img.src = `http://bonap.net/MapGallery/County/${option}.png`;
+     img.alt = option;
+     img.className = "bonap-map";
+     li.appendChild(img);
 
-    // Store the option text content as a custom attribute
-    li.setAttribute("data-option", option);
+     // Store the option text content as a custom attribute
+     li.setAttribute("data-option", option);
 
     li.onclick = () => {
       const answerResult = {
@@ -120,37 +121,38 @@ function displayQuestion() {
     optionsElement.appendChild(li);
   });
 
-  const imageContainer = document.getElementById("image-container");
   const commonNamesElement = document.getElementById("common-names");
   commonNamesElement.textContent = randomPlant["Common Name"].slice(0, 4).join(", ");
   commonNamesElement.style.fontWeight = "bold";
 
-  const scientificNameElement = document.getElementById("scientific-name");
+  const scientificNameElement = document.getElementById("scientific-name")
   scientificNameElement.textContent = randomPlant["Scientific Name"];
-};
+  displayImages(randomPlant.Images);
 
-// Move the onclick event for the "Next Question" button outside of the displayQuestion() function
-const nextQuestionButton = document.getElementById("next-question");
-nextQuestionButton.onclick = () => {
-  questionCount++;
 
-  if (questionCount === 5) {
-    answerTracking += "\n";
-  }
+  // Move the onclick event for the "Next Question" button outside of the displayQuestion() function
+  const nextQuestionButton = document.getElementById("next-question");
+  nextQuestionButton.onclick = () => {
+    questionCount++;
 
-  nextQuestionButton.style.display = "none";
-  displayQuestion();
-};
+    if (questionCount === 5) {
+      answerTracking += "\n";
+    }
+
+    nextQuestionButton.style.display = "none";
+    displayQuestion();
+  };
+}
 
 let quizType = "Common Name";
 
 function copyToClipboard(text) {
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
 }
 
 const shareButton = document.getElementById("share");
@@ -271,10 +273,36 @@ function displayResult() {
   };
 }
 
+function displayImages(images) {
+  const imageContainer = document.getElementById("images"); // Change this line
+
+  // Remove existing images from the container
+  imageContainer.innerHTML = "";
+
+  // Add the new images
+  images.forEach((imageUrl) => {
+    const img = document.createElement("img");
+    img.src = imageUrl;
+    img.alt = "Plant image";
+    img.style.maxWidth = "100%";
+    img.style.height = "auto";
+    img.style.marginRight = "5px";
+
+    imageContainer.appendChild(img);
+  });
+}
+
+// Load the plant data from your JSON data
+function loadPlant(plantData) {
+  // Display plant information and images
+  document.getElementById("common-names").textContent = plantData["Common Name"].join(", ");
+  document.getElementById("scientific-name").textContent = plantData["Scientific Name"];
+  displayImages(plantData.Images.length);
+}
+
 function getStateFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get("state") || "TX"; // Default to "TX" if no state parameter is provided
 }
 
-// Call the displayQuestion function at the end of the script
 displayQuestion();
