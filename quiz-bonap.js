@@ -159,19 +159,28 @@ const shareButton = document.getElementById("share");
 shareButton.onclick = () => {
   const state = getStateFromUrl();
   const resultText = `Nativle Maps ${correctCount}/10\nbit.ly/nativlemaps\n${answerTracking}`;
-  copyToClipboard(resultText);
-
   const messageElement = document.getElementById("message");
-  messageElement.textContent = "Results copied to clipboard!";
-  messageElement.style.display = "block";
 
-  setTimeout(() => {
-    messageElement.style.opacity = 0;
+  if (navigator.share) {
+    navigator.share({
+      title: 'Nativle Map Quiz Results',
+      text: resultText,
+    }).then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing', error));
+  } else {
+    // If Web Share API is not available, copy to clipboard and show the message
+    copyToClipboard(resultText);
+    messageElement.textContent = "Results copied to clipboard!";
+    messageElement.style.display = "block";
+
     setTimeout(() => {
-      messageElement.style.display = "none";
-      messageElement.style.opacity = 1;
+      messageElement.style.opacity = 0;
+      setTimeout(() => {
+        messageElement.style.display = "none";
+        messageElement.style.opacity = 1;
+      }, 2000);
     }, 2000);
-  }, 2000);
+  }
 };
 
 function displayResult() {
