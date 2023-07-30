@@ -251,7 +251,14 @@ button {
   color: #333;
   position: sticky;
 }
-
+/* Style the title container */
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
 /* Style the text inside the top bar */
 .top-bar h1 {
   font-family: 'Libre Baskerville', serif;
@@ -341,4 +348,59 @@ h2 {
   line-height: 1.4; /* Add this line to improve the line spacing */
   width: 50%;
   text-align: center;
+}
+/* Styles for the hamburger menu button */
+.menu-btn {
+    cursor: pointer;
+    margin-left: 15px;
+}
+/* Styles for the menu */
+.menu {
+    height: 400px;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 80px; /* Start from the bottom of the top bar */
+    left: 0;
+    background-color: #fff; /* Change background color to white */
+    overflow-x: hidden;
+    transition: 0.5s;
+    border: 1px solid grey; /* Grey border */
+    font-family: 'Libre Baskerville', serif; /* Same font as the top bar */
+}
+
+/* Styles for the menu links */
+.menu a {
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    font-size: 14px; /* Smaller text */
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Change color on hover */
+.menu a:hover {
+    color: #000; /* Text stays black */
+    background-color: #ccc; /* Background turns grey */
+}
+
+/* Change menu width on menu open */
+.menu.open {
+    width: 240px;
+}
+/* Style for the menu divider */
+.menu-divider {
+    border: 0;
+    border-top: 1px solid #ccc; /* set the color of the divider */
+    margin: 10px 0; /* add some margin to separate the links */
+}
+/* Style for the menu icon */
+.menu-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 8px; /* add some space between the icon and the text */
+    vertical-align: middle; /* align the icon with the text */
+    object-fit: cover; /* ensures the image maintains its aspect ratio */
 }
