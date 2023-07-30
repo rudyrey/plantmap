@@ -234,21 +234,31 @@ button {
 }
 /* Style the top bar */
 .top-bar {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  background-color: #f7f7f7;
-  padding: 10px 0; /* Add 10px padding to the top and bottom */
-  box-shadow: 0px 0px 2px gray; /* Remove the box-shadow */
-  border-bottom: 1px solid #ccc; /* Add a thin gray line at the bottom */
-  display: flex;
-  flex-direction: column; /* Change to column layout */
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #f7f7f7;
+    padding: 10px 0; /* Add 10px padding to the top and bottom */
+    box-shadow: 0px 0px 2px gray; /* Remove the box-shadow */
+    border-bottom: 1px solid #ccc; /* Add a thin gray line at the bottom */
+    display: flex;
+    flex-direction: row; /* Change to row layout */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Libre Baskerville', serif;
+    color: #333;
+    position: sticky;
 }
-
+/* Style the title container */
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
 /* Style the text inside the top bar */
 .top-bar h1 {
   font-family: 'Libre Baskerville', serif;
@@ -257,7 +267,6 @@ button {
   margin: 0;
   padding: 0;
 }
-
 h2 {
   font-family: 'Libre Baskerville', serif;
   font-size: 24px;
@@ -265,7 +274,6 @@ h2 {
   margin-bottom: 10px;
   padding: 0;
 }
-
 .top-bar h3 {
   font-family: 'Libre Baskerville', serif;
   font-size: 14px;
