@@ -65,8 +65,10 @@
     }
     .table {
       width: 800px;
+      font-size:14px;
       margin: 0 auto;  /* center table */
       position:relative;
+      border: 0px;
     }
     .table th {
       background-color: #333;
@@ -74,9 +76,10 @@
       border-bottom: 1px solid #ccc;
       padding: 6px;
       text-align: center;
+      border: 0px;
     }
     .table td {
-      border: 1px solid #ddd;
+      border: 0px;
       padding: 8px;
       text-align: left;
     }
