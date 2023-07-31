@@ -347,3 +347,14 @@ h2 {
   width: 50%;
   text-align: center;
 }
+@media only screen and (max-width: 430px) {
+    .table {
+        width: 375px; /* Adjust table width for iPhone */
+    }
+    .image-row {
+        width: 355px; /* Adjust image row width for iPhone */
+    }
+    .table td:first-child {
+        width: 150px;
+    }
+}
