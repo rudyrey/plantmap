@@ -87,10 +87,10 @@ function displayQuestion(question) {
 
       if (option === correctAnswer) {
         correctCount++;
-        li.style.backgroundColor = "var(--dark-green)";
+        li.style.backgroundColor = "rgb(144, 238, 144)";
         answerTracking += "✅";
       } else {
-        li.style.backgroundColor = "var(--red)";
+        li.style.backgroundColor = "rgb(255, 182, 193)";
         answerTracking += "❌";
 
         const correctLi = Array.from(optionsElement.querySelectorAll("li")).find(
