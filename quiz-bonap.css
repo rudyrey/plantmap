@@ -151,6 +151,15 @@
       max-height: 300px; /* 100vh is the full height of the viewport, minus 40px for any additional padding/margin */
       object-fit: contain; /* Ensures the image maintains its aspect ratio */
     }
+    #share {
+      border: none;                    /* Remove any border */
+      padding: 0px 15px;                     /* Remove padding so button size fits image */
+    }
+    
+    #share img {
+      height: 1.5em;                  /* Set image height to match button text */
+      vertical-align: middle;         /* Align image vertically with surrounding text */
+    }
     img {
       margin-bottom: 0px;
       border-radius: 0px;
