@@ -87,10 +87,10 @@ function displayQuestion(question) {
 
       if (option === correctAnswer) {
         correctCount++;
-        li.style.backgroundColor = "rgb(144, 238, 144)";
+        li.style.backgroundColor = "green";
         answerTracking += "✅";
       } else {
-        li.style.backgroundColor = "rgb(255, 182, 193)";
+        li.style.backgroundColor = "red";
         answerTracking += "❌";
 
         const correctLi = Array.from(optionsElement.querySelectorAll("li")).find(
@@ -201,7 +201,7 @@ function displayResult() {
     row.className = "result-row";
     row.style.display = "flex";
     row.style.justifyContent = "space-between";
-    row.style.backgroundColor = answerResult.correct ? "var(--light-green)" : "var(--red)";
+    row.style.backgroundColor = answerResult.correct ? "#90EE90" : "#FFB6C1";
     row.style.marginBottom = "5px";
     row.style.padding = "5px";
     row.style.borderRadius = "5px";
