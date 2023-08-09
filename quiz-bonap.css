@@ -355,7 +355,7 @@
       cursor: pointer;
     }
     .state-menu li:hover {
-      background-color: #f0f0f0;
+      background-color: var(--blue);
     }
     #tracking-container {
       max-width: 375px; /* Width of an iPhone */
