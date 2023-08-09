@@ -229,7 +229,7 @@
     .option {
         cursor: pointer;
     }
-    .option:hover {
+    #options li:hover {
         background-color: var(--blue);
     }
     #options li {
