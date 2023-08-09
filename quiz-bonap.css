@@ -172,18 +172,6 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-    li {
-      padding: 10px;
-      margin: 5px;
-      background-color: var(--water);
-      border-radius: 0px;
-      cursor: pointer;
-      color: #333;
-      transition: background-color 0.3s ease;
-    }
-    li:hover {
-      background-color: var(--blue);
-    }
     p {
       text-align: center;
       margin-bottom: 10px;
