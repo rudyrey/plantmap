@@ -241,6 +241,12 @@
       color: #333;
       transition: background-color 0.3s ease;
     }
+    #options {
+        cursor: pointer;
+    }
+    #options:hover {
+        background-color: var(--blue);
+    }
     .option li {
       padding: 5px;
       margin: 5px;
