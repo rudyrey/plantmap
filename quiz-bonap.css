@@ -232,6 +232,15 @@
     .option:hover {
         background-color: var(--blue);
     }
+    #options li {
+      padding: 5px;
+      margin: 5px;
+      background-color: var(--water);
+      border-radius: 0px;
+      cursor: pointer;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
     .option li {
       padding: 5px;
       margin: 5px;
